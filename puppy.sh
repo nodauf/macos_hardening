@@ -554,10 +554,10 @@ do
       # STATUS/AUDIT
       # pwpolicy (like Registry with more options)
       #
-      elif [[ $Method == "PlistBuddy" ]]; then
+      elif [[ $Method == "pwpolicy" ]]; then
 
         # command
-        COMMAND="/usr/bin/pwpolicy -n /Local/Default | grep $RegistryItem -A 4 | tail -n 1 | cut -d '>' -f 2 | cut -d '<' -f 1"
+        COMMAND="/usr/bin/pwpolicy -n /Local/Default getaccountpolicies | grep $RegistryItem -A 4 | tail -n 1 | cut -d '>' -f 2 | cut -d '<' -f 1"
 
         # print command in verbose mode
         if [[ "$VERBOSE" == true ]]; then
