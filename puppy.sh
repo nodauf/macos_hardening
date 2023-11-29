@@ -92,7 +92,7 @@ function WarningMessage() {
 function AlertMessage() {
   echo -e "${RED}[x] $1${NC}"
 }
-function AlertHightMessage() {
+function AlertHighMessage() {
   echo -e "${PURPLEBOLD}[X] $1${NC}"
 }
 function AlertMediumMessage() {
@@ -193,9 +193,9 @@ function PrintAudit() {
           SuccessMessage "$MESSAGE"
         else
           case $Severity in
-            "Hight" )
+            "High" )
             POINTSARCHIVED=$((POINTSARCHIVED+0))
-            AlertHightMessage "$MESSAGE"
+            AlertHighMessage "$MESSAGE"
               ;;
             "Medium" )
             POINTSARCHIVED=$((POINTSARCHIVED+1))
@@ -227,7 +227,7 @@ function AuditBeforeReinforce() {
       APPLYHARDEN=0
     else
       case $Severity in
-        "Hight" )
+        "High" )
         APPLYHARDEN=1
           ;;
         "Medium" )
@@ -453,7 +453,7 @@ if [[ "$SKIP_UPDATE" == false ]]; then
     if [[ "$ReturnedValue" == "$EXPECTED_OUTPUT_SOFTWARE_UPDATE" ]]; then
       SuccessMessage "Your software is up to date !"
     else
-      AlertHightMessage "You have to update your software."
+      AlertHighMessage "You have to update your software."
       SimpleMessage "Remediation 1 : with hadening mode (-H|--harden)"
       SimpleMessage "Remediation 2 : with command 'sudo softwareupdate -ia'"
     fi
@@ -784,7 +784,7 @@ do
       #
       # Get audit before hardening
       # APPLYHARDEN=0 : policy is already configured to recommended value
-      # APPLYHARDEN=1 : Hight policy have to be configured
+      # APPLYHARDEN=1 : High policy have to be configured
       # APPLYHARDEN=2 : Medium policy have to be configured
       # APPLYHARDEN=3 : Low policy have to be configured
       #
