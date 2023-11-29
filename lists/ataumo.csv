@@ -39,7 +39,7 @@ ID,Category,Name,AssessmentStatus,Method,MethodOption,GetCommand,SetCommand,User
 3700,User Preferences,Diagnostic : Disable sending diagnostic and usage data to Apple,Automatically,Registry,,,,,/Library/Application\ Support/CrashReporter/DiagnosticMessagesHistory,AutoSubmit,,false,bool,=,Medium,2
 3701,User Preferences,Diagnostic : Share with App Developers,Automatically,Registry,,,,,/Library/Application\ Support/CrashReporter/DiagnosticMessagesHistory,ThirdPartyDataSubmit,,false,bool,=,Medium,ND
 3800,User Preferences,Advertisements : Limit Ad tracking and personalized Ads,Automatically,Registry,,,,,~/Library/Preferences/com.apple.AdLib,allowApplePersonalizedAdvertising,,false,bool,=,Medium,
-4000,Protections,Systeme intergrity protection : Enable Systeme intergrity protection,,csrutil,,status,,,,,enable,enable,enable/disable,=,High,ND
+4000,Protections,Systeme integrity protection : Enable Systeme integrity protection,,csrutil,,status,,,,,enable,enable,enable/disable,=,High,ND
 4100,Protections,Gatekeeper : Enable Gatekeeper,,spctl,,--status,,,,,enable,enable,enable/disable,=,High,ND
 4200,Protections,Secure Keyboard Entry : Enable Secure Keyboard Entry in terminal.app,Automatically,Registry,,,,username,-app Terminal,SecureKeyboardEntry,false,true,bool,=,Medium,1
 5000,Encryption,FileVault : Enable FileVault,,fdesetup,,status,,,,,disable,enable,enable/disable,=,High,ND
