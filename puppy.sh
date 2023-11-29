@@ -551,6 +551,27 @@ do
           ReturnedValue="$DefaultValue"
         fi
 
+      # STATUS/AUDIT
+      # pwpolicy (like Registry with more options)
+      #
+      elif [[ $Method == "PlistBuddy" ]]; then
+
+        # command
+        COMMAND="/usr/bin/pwpolicy -n /Local/Default | grep $RegistryItem -A 4 | tail -n 1 | cut -d '>' -f 2 | cut -d '<' -f 1"
+
+        # print command in verbose mode
+        if [[ "$VERBOSE" == true ]]; then
+          ReturnedValue=$(eval "$COMMAND")
+        else
+          ReturnedValue=$(eval "$COMMAND" 2>/dev/null) # throw away stderr
+        fi
+        ReturnedExit=$?
+
+        # if an error occurs, it's caused by non-existance of the couple (file,item)
+        # we will not consider this as an error, but as an warning
+        if [[ $ReturnedExit -lt $RecommendedValue ]]; then
+          ReturnedExit=0
+        fi
 
       # STATUS/AUDIT
       # PlistBuddy (like Registry with more options)
